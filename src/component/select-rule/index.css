@@ -1,0 +1,19 @@
+.one-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.one-row span {
+    width: 40px;
+}
+
+.find-people {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;;
+}
+.find-result {
+    display: flex;
+    justify-content: center;
+}

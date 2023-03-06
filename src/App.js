@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Col, Row } from 'antd';
+import SelectRule from './component/select-rule';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Row>
+        <Col span={4}></Col>
+        {/* middle */}
+        <Col span={16}>
+          <Row align='center'>
+            <Col><h1>基于匹配的人员查找算法</h1></Col>
+          </Row>
+          {/* select rule */}
+          <Row>
+            <Col span={24}><SelectRule /></Col>
+          </Row>
+        </Col>
+        <Col span={4}></Col>
+      </Row>
+    </>
   );
 }
 
