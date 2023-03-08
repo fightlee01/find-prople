@@ -7,6 +7,10 @@ function SelectRule() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNum, setPhoneNum] = useState('')
+  const [country, setCountry] = useState('')
+  const [passport, setPassport] = useState('')
+  const [work, setWork] = useState('')
+  const [school, setSchool] = useState('')
   const [options, setOptions] = useState([])
   const [org, setOrg] = useState('')
 
@@ -23,13 +27,26 @@ function SelectRule() {
   const getPhoneNum = e => {
     setPhoneNum(e.target.value)
   }
+  const getCountry = (e) => {
+    setCountry(e.target.value)
+  }
+  const getPassport = (e) => {
+    setPassport(e.target.value)
+  }
+  const getWork = (e) => {
+    setWork(e.target.value)
+  }
+  const getSchool = (e) => {
+    setSchool(e.target.value)
+  }
   const getOptions = value => {
     console.log(value)
     setOptions([...value])
   }
 
   const onFindPeople = async () => {
-    const data = {name, email, phoneNum, options}
+    const data = {name, email, phoneNum, country, passport, work, school, options}
+    console.log(data)
     const result = await axios.post(`/api/json/data`, JSON.stringify(data))
     console.log(result)
     console.log(JSON.stringify(data))
@@ -57,16 +74,36 @@ function SelectRule() {
             <Input onChange={getPhoneNum} placeholder='请输入电话' style={{width: '80%'}}/>
           </div>
         </Col>
+        <Col span={12}>
+          <div className='one-row'>
+            <span>国籍</span>
+            <Input onChange={getCountry} placeholder='请输入国籍' style={{width: '80%'}}/>
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='one-row'>
+            <span>护照类型</span>
+            <Input onChange={getPassport} placeholder='请输入护照类型' style={{width: '80%'}}/>
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='one-row'>
+            <span>职业</span>
+            <Input onChange={getWork} placeholder='请输入职业' style={{width: '80%'}}/>
+          </div>
+        </Col>
+        <Col span={12}>
+          <div className='one-row'>
+            <span>毕业院校</span>
+            <Input onChange={getSchool} placeholder='请输入毕业院校' style={{width: '80%'}}/>
+          </div>
+        </Col>
       </Row>
       <Row>
         <Col span={24}>
           <Checkbox.Group onChange={getOptions}>
             <Checkbox value='call_f'>通话频率</Checkbox>
             <Checkbox value='social_f'>社交频率</Checkbox>
-            <Checkbox value='country'>国籍</Checkbox>
-            <Checkbox value='passport'>护照类型</Checkbox>
-            <Checkbox value='work'>职业</Checkbox>
-            <Checkbox value='school'>毕业院校</Checkbox>
           </Checkbox.Group>
         </Col>
       </Row>
