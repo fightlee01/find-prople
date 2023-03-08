@@ -62,6 +62,8 @@ function SelectRule() {
     console.log(JSON.stringify(data))
     if (result.data.org !== 'NULL') {
       setOrg(result.data.org)
+    } else {
+      setOrg('无法推测该人员所属的组织！')
     }
   }
 
