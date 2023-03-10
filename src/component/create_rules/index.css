@@ -1,0 +1,10 @@
+.rule-make-up {
+    display: flex;
+    margin-top: 10px;
+}
+.rule-make-up-item {
+    display: flex;
+}
+.rule-make-up-label {
+    margin: 8px;
+}

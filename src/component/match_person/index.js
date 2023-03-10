@@ -1,7 +1,9 @@
 import { Checkbox, Col, Row, Input, Button, message } from "antd";
 import './index.css'
 import { useState } from 'react';
+// import {useHref} from 'react-router-dom'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 function SelectRule() {
   const [name, setName] = useState('')
@@ -13,6 +15,9 @@ function SelectRule() {
   const [school, setSchool] = useState('')
   const [options, setOptions] = useState({})
   const [org, setOrg] = useState('')
+
+
+  const plainOptions = ['规则1', '规则2', '规则3', '规则4', '规则5', '规则6'];
 
 
   const getName = e => {
@@ -44,6 +49,10 @@ function SelectRule() {
     setOptions(tmp)
   }
 
+  const onChangeCheck = () => {
+
+  }
+
   const onFindPeople = async () => {
     const reg = /^\w+((.\w+)|(-\w+))@[A-Za-z0-9]+((.|-)[A-Za-z0-9]+).[A-Za-z0-9]+$/
     if (!name) {
@@ -69,6 +78,12 @@ function SelectRule() {
 
   return (
     <>
+      <Row>
+        <Col span={ 24 }>
+          <Checkbox.Group options={ plainOptions } defaultValue={ ['Apple'] } onChange={ onChangeCheck }/>
+          <Link to='/fix_rules'>配置规则</Link>
+        </Col>
+      </Row>
       <Row>
         <Col span={ 12 }>
           <div className='one-row'>
@@ -113,14 +128,14 @@ function SelectRule() {
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col span={ 24 }>
-          <Checkbox.Group onChange={ getOptions }>
-            <Checkbox value='call_f'>通话频率</Checkbox>
-            <Checkbox value='social_f'>社交频率</Checkbox>
-          </Checkbox.Group>
-        </Col>
-      </Row>
+      {/*<Row>*/ }
+      {/*  <Col span={ 24 }>*/ }
+      {/*    <Checkbox.Group onChange={ getOptions }>*/ }
+      {/*      <Checkbox value='call_f'>通话频率</Checkbox>*/ }
+      {/*      <Checkbox value='social_f'>社交频率</Checkbox>*/ }
+      {/*    </Checkbox.Group>*/ }
+      {/*  </Col>*/ }
+      {/*</Row>*/ }
       <Row justify='center'>
         <Col span={ 24 }>
           <div className='find-people'><Button type="primary" style={ {width: '200px'} }
