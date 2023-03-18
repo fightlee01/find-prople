@@ -31,9 +31,19 @@ const CreateRules = () => {
       width: '100px'
     },
     {
+      title: '规则名称',
+      dataIndex: 'rule_name',
+      key: 'rule_name',
+    },
+    {
       title: '规则',
       dataIndex: 'rule',
       key: 'rule',
+    },
+    {
+      title: '规则描述',
+      dataIndex: 'rule_des',
+      key: 'rule_des',
     }
   ];
   const handleChange = (value, detail_info) => {
@@ -51,7 +61,9 @@ const CreateRules = () => {
     setRuleList([...ruleList, {
       key: ruleList.length + 1,
       number: ruleList.length + 1,
-      rule: rulesItem.join('+')
+      rule: rulesItem.join('+'),
+      rule_name: '规则'+ruleList.length+1,
+      rule_des: '规则描述'+ruleList.length+1
     }])
     setRulesItem([])
     setRulesValue([])
@@ -127,7 +139,8 @@ const CreateRules = () => {
           </Row>
           <Row>
             <Col span={ 20 }>
-              { ruleList.length > 0 ? <Table columns={ columns } dataSource={ ruleList }/> : '' }
+              {/*{ ruleList.length > 0 ? <Table columns={ columns } dataSource={ ruleList }/> : '' }*/}
+              <Table columns={ columns } dataSource={ ruleList }/>
             </Col>
           </Row>
         </Col>
